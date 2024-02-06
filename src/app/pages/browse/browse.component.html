@@ -1,0 +1,42 @@
+<div class="browse-page">
+    <app-header></app-header>
+    <div class="banner overflow-hidden flex flex-col justify-end">
+        <img [src]="tmdbConfig.imagePath+bannerMovie.poster_path" alt="" class="banner-img">
+        <div class=" banner-details absolute z-10 text-white w-50 bottom-0 left-0 p-10 ">
+            <h1 class="font-bold">{{bannerMovie.original_title}}</h1>
+            <p>{{bannerMovie.overview}}</p>
+            <div class="w-full flex justify-center">
+                <button class="ms-4 border-red-700" (click)="hideorunhide()">Play</button>
+                <button class="ms-4 border-neutral-700">More Info</button>
+            </div>
+        </div>
+        <app-movie-video-popup [IsHidden]="IsHiddenPopup" [videoLink]="bannerMovie.videoLink+''"></app-movie-video-popup>
+    </div>
+    <div class="movie-categories">
+        @defer{
+        <app-movie-category title="Popular" [List]="popularMovies" (clickVideoPlay)="hideorunhideForCard($event)"></app-movie-category>
+        }@loading(minimum 1s){
+        <h2 class="text-center text-red-700">Loading</h2>
+        }
+        @defer{
+        <app-movie-category title="Top Rating" [List]="topRatedMovies" (clickVideoPlay)="hideorunhideForCard($event)"></app-movie-category>
+        }@loading(minimum 1s){
+        <h2 class="text-center text-red-700">Loading</h2>
+        }
+
+        @defer{
+        <app-movie-category title="Up Coming" [List]="upcommingMovies" (clickVideoPlay)="hideorunhideForCard($event)"></app-movie-category>
+        }@loading(minimum 1s){
+        <h2 class="text-center text-red-700">Loading</h2>
+        }
+
+
+        @defer{
+        <app-movie-category title="Now playing" [List]="nowPlayingMovies"  (clickVideoPlay)="hideorunhideForCard($event)"></app-movie-category>
+        }@loading(minimum 1s){
+        <h2 class="text-center text-red-700">Loading</h2>
+        }
+
+        <app-movie-video-popup [IsHidden]="IsHiddenPopupFromCard" [videoLink]="PopupLinkFromCard"></app-movie-video-popup>
+    </div>
+</div>

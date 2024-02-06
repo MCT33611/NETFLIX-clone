@@ -1,0 +1,19 @@
+<!-- <div class="movie-card">
+    <img src="https://static1.colliderimages.com/wordpress/wp-content/uploads/2023/01/most-popular-movies-on-netflix.jpg" alt="movie-image">
+    <h4>Movie Title</h4>
+    <p>movie discreption</p>
+</div> -->
+@if(details){
+<div class="item">
+    <a (click)="VideoPlay(details.videoLink+'')">
+        <img [src]="tmdbConfig.imagePath + details.poster_path" alt="movie image" />
+        <h1 class="heading">{{details.original_title}}</h1>
+        <!-- <p class="duration">Relese Date: {{details.release_date}}</p> -->
+    </a>
+</div>
+
+}
+@else {
+<h1 class="text-center text-red-700">Loding...</h1>
+
+}

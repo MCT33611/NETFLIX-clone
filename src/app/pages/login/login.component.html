@@ -1,0 +1,27 @@
+<div class="h-screen -z-10  md:justify-start" [style.backgroundImage]='bgStyle'>
+    <div class="shadow-container">
+        <app-header/>
+        <div class="login-container px-10">
+            <div class="login-card">
+                <form [formGroup]="loginForm" (submit)="OnSubmit()">
+                    <h1 class="heading">Sign In</h1>
+                    <div class="form-field">
+                        <input type="text" class="input" name="Email" formControlName="Email" placeholder="Email or Phone number">
+                    </div>
+
+                    <div class="form-field">
+                        <input type="password" class="input" name="Password" formControlName="Password" placeholder="Password">
+                    </div>
+                    <div class="action-field">
+                        <button type="submit" [disabled]="loginForm.valid" class="login-btn">Sign In</button>
+                        <div class="flex my-5">
+                            <a class="text-white" href="#">Forgot password?</a>
+                            <a routerLink="/signup" class="text-red-700 mx-6">Sign Up</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

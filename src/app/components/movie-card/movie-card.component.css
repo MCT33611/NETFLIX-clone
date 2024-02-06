@@ -1,0 +1,24 @@
+.item {
+    position: relative;
+    padding: 0 2px;
+    transition: 250ms all;
+}
+
+.item:hover {
+    margin: 0 40px;
+    transform: scale(1.2);
+}
+
+.item .heading {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+}
+
+.item .duration {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    color: #fff;
+}

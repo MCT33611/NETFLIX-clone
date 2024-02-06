@@ -1,0 +1,31 @@
+<!-- <div>
+    <h3 class="text-white font-bold mb-2 text-xl">{{title}}</h3>
+</div>
+<div class="movies flex gap-2">
+    <app-movie-card></app-movie-card>
+    <app-movie-card></app-movie-card>
+    <app-movie-card></app-movie-card>
+    <app-movie-card></app-movie-card>
+</div> -->
+
+<div class="z-50">
+    <h3 class="text-white font-bold mb-2 text-xl">{{title}}</h3>
+</div>
+
+<div class="wrapper">
+
+    @defer{
+        <section id="section1">
+            <!-- <a class="arrow__btn left-arrow">‹</a> -->
+            @for(movie of List; track movie){
+    
+            <app-movie-card [details]="movie" (clickVideoPlay)="VideoPlay($event)"></app-movie-card>
+            }
+            @empty {
+            <h1 class="text-center text-red-700">Loding...</h1>
+            }
+    
+            <!-- <a  class="arrow__btn right-arrow">›</a> -->
+        </section>
+    }
+</div>
